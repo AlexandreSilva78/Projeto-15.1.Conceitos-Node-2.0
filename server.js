@@ -3,11 +3,11 @@ import cors from 'cors'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
-const PORT = process.env.PORT || 3000; 
+//const PORT = process.env.PORT || 3000; 
 
 const app = express()
 app.use(express.json())
-app.use(cors({ origin: '*' }));
+app.use(cors())
 
                     //request , responsse
 app.get('/usuarios', async (req, res) => {    
@@ -58,8 +58,8 @@ app.delete('/usuarios/:id', async (req, res) => {
     res.status(200).json({message: "Usuário deletado com sucesso"})
 })
 
-app.listen(PORT, () => console.log(`API on ${PORT}`));
-//app.listen(3000, () => console.log('🚀 Servidor rodando em http://localhost:3000'))
+//app.listen(PORT, () => console.log(`API on ${PORT}`));
+app.listen(3000, () => console.log('🚀 Servidor rodando em http://localhost:3000'))
 
     // PUT = Editar Vários
     // PATCH = Editar UM
